@@ -10,11 +10,9 @@
 	}else{
 		$res = $con->query("INSERT INTO area (nom_area,desc_area) VALUES ('$nomArea','$descArea')");
 		if ($res) {
-			echo 1;
-			//json_encode(array('error' => false));
+			echo json_encode(array('error' => false));
 		}else{
-			echo 2; 
-			//json_encode(array('error' => true));
+			echo json_encode(array('error' => true));
 		}
 	}
 

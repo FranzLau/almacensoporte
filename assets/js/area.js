@@ -18,7 +18,7 @@ jQuery(document).ready(function() {
     .done(function(r) {
       if (r==0) {
         alertify.error("El Área ya existe!");
-      }else if(r==1){
+      }else if(!r.error){
         $('#tableArea').load('../componentes/tableArea.php');
         $('#formNewArea')[0].reset();
         alertify.success("Agregado con Éxito");
