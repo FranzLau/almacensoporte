@@ -87,25 +87,23 @@
 
                           <div class="row">
 
-                            <div class="col-sm-6 pr-5">
+                            <div class="col-sm-6">
 
                               <div class="form-group row">
-                                <label for="descNewProd" class="col-form-label col-form-label-sm col-sm-4">Descripción :</label>
-                                <div class="col-sm-8">
+                                <label for="descNewProd" class="col-form-label col-form-label-sm col-sm-3">Descripción :</label>
+                                <div class="col-sm-9">
                                   <input type="text" class="form-control form-control-sm" name="descNewProd" id="descNewProd">
                                 </div>
                               </div>
                               <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
-                              <div class="form-group row">
-                                <label for="cantNewProd" class="col-form-label col-form-label-sm col-sm-4">Cantidad:</label>
-                                <div class="col-sm-4">
-                                  <input type="number" class="form-control form-control-sm" id="cantNewProd" name="cantNewProd">
-                                </div>
-                              </div>
+                              <!-- <div class="form-group row">
+
+
+                              </div> -->
                               <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
                               <div class="form-group row">
-                                <label for="catgNewProd" class="col-form-label col-form-label-sm col-sm-4">Categoria :</label>
-                                <div class="col-sm-8">
+                                <label for="catgNewProd" class="col-form-label col-form-label-sm col-sm-3">Tipo :</label>
+                                <div class="col-sm-5">
                                   <select class="form-control form-control-sm" id="catgNewProd" name="catgNewProd" style="width:100%">
                                   <option value="">Elije categoria</option>
                                     <?php $ctg = $con->query("SELECT * FROM categoria");
@@ -118,40 +116,39 @@
                                     ?>
                                   </select>
                                 </div>
-                              </div>
-                              <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
-                              <div class="card">
-                                <div class="card-body">
-                                  <div class="form-group row">
-                                    <label for="procesNewProd" class="col-form-label col-form-label-sm col-sm-4">Procesador :</label>
-                                    <div class="col-sm-4">
-                                      <input type="text" class="form-control form-control-sm" name="procesNewProd" id="procesNewProd">
-                                    </div>
-                                  </div>
-                                  <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
-                                  <div class="form-group row">
-                                    <label for="discoNewProd" class="col-form-label col-form-label-sm col-sm-4">Disco Duro :</label>
-                                    <div class="col-sm-4">
-                                      <input type="text" class="form-control form-control-sm" name="discoNewProd" id="discoNewProd">
-                                    </div>
-                                  </div>
-                                  <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
-                                  <div class="form-group row">
-                                    <label for="ramNewProd" class="col-form-label col-form-label-sm col-sm-4">RAM :</label>
-                                    <div class="col-sm-4">
-                                      <input type="text" class="form-control form-control-sm" name="ramNewProd" id="ramNewProd">
-                                    </div>
-                                  </div>
-                                  <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
-                                  <div class="form-group row mb-0">
-                                    <label for="soNewProd" class="col-form-label col-form-label-sm col-sm-4">S.O. :</label>
-                                    <div class="col-sm-6">
-                                      <input type="text" class="form-control form-control-sm" name="soNewProd" id="soNewProd">
-                                    </div>
-                                  </div>
-                                  <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
+                                <label for="cantNewProd" class="col-form-label col-form-label-sm col-sm-2">Cant.</label>
+                                <div class="col-sm-2">
+                                  <input type="number" class="form-control form-control-sm" id="cantNewProd" name="cantNewProd">
                                 </div>
                               </div>
+                              <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
+                              <hr>
+                              <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
+                              <div class="form-group row">
+                                <label for="procesNewProd" class="col-form-label col-form-label-sm col-sm-3">CPU :</label>
+                                <div class="col-sm-3">
+                                  <input type="text" class="form-control form-control-sm" name="procesNewProd" id="procesNewProd">
+                                </div>
+                                <label for="ramNewProd" class="col-form-label col-form-label-sm col-sm-3">RAM :</label>
+                                <div class="col-sm-3">
+                                  <input type="text" class="form-control form-control-sm" name="ramNewProd" id="ramNewProd">
+                                </div>
+                              </div>
+                              <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
+                              <div class="form-group row">
+                                <label for="discoNewProd" class="col-form-label col-form-label-sm col-sm-3">Disk:</label>
+                                <div class="col-sm-3">
+                                  <input type="text" class="form-control form-control-sm" name="discoNewProd" id="discoNewProd">
+                                </div>
+                                <label for="soNewProd" class="col-form-label col-form-label-sm col-sm-2">S.O. :</label>
+                                <div class="col-sm-4">
+                                  <input type="text" class="form-control form-control-sm" name="soNewProd" id="soNewProd">
+                                </div>
+                              </div>
+                              <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
+
+
+                              <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
 
 
                             </div>
@@ -159,41 +156,33 @@
                             <div class="col-sm-6 pl-5">
 
                               <div class="form-group row">
-                                <label for="serieNewProd" class="col-form-label col-form-label-sm col-sm-4">Serie:</label>
-                                <div class="col-sm-8">
+                                <label for="serieNewProd" class="col-form-label col-form-label-sm col-sm-2">Serie:</label>
+                                <div class="col-sm-10">
                                   <input type="text" class="form-control form-control-sm" id="serieNewProd" name="serieNewProd">
                                 </div>
                               </div>
                                 <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
                               <div class="form-group row">
-                                <label for="marcaNewProd" class="col-form-label col-form-label-sm col-sm-4">Marca:</label>
-                                <div class="col-sm-8">
+                                <label for="marcaNewProd" class="col-form-label col-form-label-sm col-sm-2">Marca:</label>
+                                <div class="col-sm-4">
                                   <input type="text" class="form-control form-control-sm" id="marcaNewProd" name="marcaNewProd">
                                 </div>
-                              </div>
-                              <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
-                              <div class="form-group row">
-                                <label for="modeloNewProd" class="col-form-label col-form-label-sm col-sm-4">Modelo:</label>
-                                <div class="col-sm-8">
+                                <label for="modeloNewProd" class="col-form-label col-form-label-sm col-sm-2">Model:</label>
+                                <div class="col-sm-4">
                                   <input type="text" class="form-control form-control-sm" id="modeloNewProd" name="modeloNewProd">
                                 </div>
                               </div>
                               <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
                               <div class="form-group row">
-                                <label for="af1NewProd" class="col-form-label col-form-label-sm col-sm-4">Activo:</label>
-                                <div class="col-sm-8">
+                                <label for="af1NewProd" class="col-form-label col-form-label-sm col-sm-2">AF:</label>
+                                <div class="col-sm-4">
                                   <input type="text" class="form-control form-control-sm" id="af1NewProd" name="af1NewProd">
                                 </div>
-                              </div>
-                              <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
-                              <div class="form-group row">
-                                <label for="af2NewProd" class="col-form-label col-form-label-sm col-sm-4">Activo2:</label>
-                                <div class="col-sm-8">
+                                <label for="af2NewProd" class="col-form-label col-form-label-sm col-sm-2">AF2:</label>
+                                <div class="col-sm-4">
                                   <input type="text" class="form-control form-control-sm" id="af2NewProd" name="af2NewProd">
                                 </div>
                               </div>
-                              <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
-                              <hr>
                               <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
                               <div class="form-group row">
                                 <label for="presentNewProd" class="col-form-label col-form-label-sm col-sm-4">Contrato::</label>
@@ -296,6 +285,12 @@
             $('#descEditProd').val(datos['ProdDesc']);
             $('#estadoEditProd').val(datos['ProdEsta']);
             $('#cantEditProd').val(datos['ProdCant']);
+
+            $('#ProcesEditProd').val(datos['ProdPros']);
+            $('#DiscoEditProd').val(datos['ProdDisco']);
+            $('#ramEditProd').val(datos['ProdRam']);
+            $('#soEditProd').val(datos['ProdSo']);
+
             $('#ctgsEditeProd').val(datos['ProdCtg']);
             $('#preseEditeProd').val(datos['ProdPst']);
           }

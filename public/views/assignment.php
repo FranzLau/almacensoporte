@@ -67,110 +67,146 @@
                         <div class="row">
                           <div class="col-sm-12">
                             <form id="formNewAsignament">
+                              <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
+                              <div class="row">
+                                <div class="col-sm-6">
+                                  <div class="form-group row">
+                                    <label for="newAsigSerie" class="col-form-label col-form-label-sm col-sm-3">Serie :</label>
+                                    <div class="col-sm-5">
+                                      <select class="form-control form-control-sm" id="newAsigSerie" name="newAsigSerie" style="width:100%">
+                                        <option value="">Elije producto</option>
+            														<?php $prod = $con->query("SELECT * FROM equipo WHERE cantidad_equipo <> 0 ");
+            																while ($row = $prod->fetch_assoc()) {
+            																	echo "<option value='".$row['id_equipo']."' ";
+            																	echo ">";
+            																	echo $row['serie_equipo'];
+            																	echo "</option>";
+            																}
+            														?>
+                                      </select>
+                                    </div>
+                                    <label for="newAsigCant" class="col-form-label col-form-label-sm col-sm-2">Cant:</label>
+                                    <div class="col-sm-2">
+                                      <input type="number" class="form-control form-control-sm" id="newAsigCant" name="newAsigCant">
+                                    </div>
+                                  </div>
+                                  <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
+                                  <!-- <div class="form-group row">
 
-                              <div class="form-row">
 
-                                <div class="form-group col-md-4">
-                                  <label for="newAsigEmp" class="col-form-label col-form-label-sm">Responsable:</label>
-                                  <!-- <input type="text" class="form-control form-control-sm" id="inputEmail4"> -->
-                                  <select class="form-control form-control-sm" id="newAsigEmp" name="newAsigEmp" style="width:100%">
-                                    <option >Elije cliente</option>
-        														<?php $prod = $con->query("SELECT * FROM empleado");
-        															while ($row = $prod->fetch_assoc()) {
-        																echo "<option value='".$row['id_emp']."' ";
-        																echo ">";
-        																echo $row['nom_emp'];
-        																echo " ";
-        																echo $row['ape_emp'];
-        																echo "</option>";
-        															}
-        														?>
-                                  </select>
+                                  </div> -->
+                                  <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
+                                  <div class="form-group row">
+                                    <label for="newAsigEmp" class="col-form-label col-form-label-sm col-sm-3">Responsable:</label>
+                                    <div class="col-sm-9">
+                                      <select class="form-control form-control-sm" id="newAsigEmp" name="newAsigEmp" style="width:100%">
+                                        <option >Elije cliente</option>
+            														<?php $prod = $con->query("SELECT * FROM empleado");
+            															while ($row = $prod->fetch_assoc()) {
+            																echo "<option value='".$row['id_emp']."' ";
+            																echo ">";
+            																echo $row['nom_emp'];
+            																echo " ";
+            																echo $row['ape_emp'];
+            																echo "</option>";
+            															}
+            														?>
+                                      </select>
+                                    </div>
+                                  </div>
+                                  <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
+                                  <div class="form-group row">
+                                    <label for="newAsigArea" class="col-form-label col-form-label-sm col-sm-3">Ubicación :</label>
+                                    <div class="col-sm-9">
+                                      <select class="form-control form-control-sm" id="newAsigArea" name="newAsigArea" style="width:100%">
+                                        <option value="">Elije ubicacion</option>
+            														<?php $prod = $con->query("SELECT * FROM area");
+            																while ($row = $prod->fetch_assoc()) {
+            																	echo "<option value='".$row['id_area']."' ";
+            																	echo ">";
+            																	echo $row['nom_area'];
+            																	echo "</option>";
+            																}
+            														?>
+                                      </select>
+                                    </div>
+                                  </div>
+                                  <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
+
                                 </div>
+                                <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
+                                <div class="col-sm-3">
+                                  <div class="form-group row">
+                                    <label for="newAsigCateg" class="col-form-label col-form-label-sm col-sm-3">T :</label>
+                                    <div class="col-sm-9">
+                                      <select class="form-control form-control-sm" id="newAsigCateg" name="newAsigCateg" style="width:100%" disabled>
+                                        <option value="">Pertenece a...</option>
+                                        <?php $ctg = $con->query("SELECT * FROM categoria");
+                                            while ($row = $ctg->fetch_assoc()) {
+                                              echo "<option value='".$row['id_categoria']."' ";
+                                              echo ">";
+                                              echo $row['nom_categoria'];
+                                              echo "</option>";
+                                            }
+                                        ?>
+                                      </select>
+                                    </div>
+                                  </div>
+                                  <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
+                                  <div class="form-group row">
+                                    <label for="newAsigMarca" class="col-form-label col-form-label-sm col-sm-3">M :</label>
+                                    <div class="col-sm-9">
+                                      <input type="text" class="form-control form-control-sm" id="newAsigMarca" name="newAsigMarca" readonly>
+                                    </div>
+                                  </div>
+                                  <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
+                                  <div class="form-group row mb-0">
+                                    <label for="newAsigContrat" class="col-form-label col-form-label-sm col-sm-3">Cto :</label>
+                                    <div class="col-sm-9">
+                                      <select class="form-control form-control-sm" id="newAsigContrat" name="newAsigContrat" style="width:100%" disabled>
+                                        <option value="">Pertenece a...</option>
+                                        <?php $ctg = $con->query("SELECT * FROM presentacion");
+                                            while ($row = $ctg->fetch_assoc()) {
+                                              echo "<option value='".$row['id_presentacion']."' ";
+                                              echo ">";
+                                              echo $row['nom_presentacion'];
+                                              echo "</option>";
+                                            }
+                                        ?>
+                                      </select>
+                                    </div>
+                                  </div>
+                                  <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
 
-                                <div class="form-group col-md-4">
-                                  <label for="newAsigArea" class="col-form-label col-form-label-sm">Ubicación (Area):</label>
-                                  <!-- <input type="number" class="form-control form-control-sm" id="inputPassword4"> -->
-                                  <select class="form-control form-control-sm" id="newAsigArea" name="newAsigArea" style="width:100%">
-                                    <option value="">Elije ubicacion</option>
-        														<?php $prod = $con->query("SELECT * FROM area");
-        																while ($row = $prod->fetch_assoc()) {
-        																	echo "<option value='".$row['id_area']."' ";
-        																	echo ">";
-        																	echo $row['nom_area'];
-        																	echo "</option>";
-        																}
-        														?>
-                                  </select>
+                                  <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
+
                                 </div>
-
-                                <div class="form-group col-md-1">
-                                  <label for="newAsigCant" class="col-form-label col-form-label-sm">Cant:</label>
-                                  <input type="number" class="form-control form-control-sm" id="newAsigCant" name="newAsigCant">
+                                <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
+                                <div class="col-sm-3">
+                                  <div class="form-group row">
+                                    <label for="" class="col-form-label col-form-label-sm col-sm-3">ELS :</label>
+                                    <div class="col-sm-9">
+                                      <input type="text" class="form-control form-control-sm" id="" name="">
+                                    </div>
+                                  </div>
+                                  <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
+                                  <div class="form-group row">
+                                    <label for="" class="col-form-label col-form-label-sm col-sm-3">IP :</label>
+                                    <div class="col-sm-9">
+                                      <input type="text" class="form-control form-control-sm" id="" name="">
+                                    </div>
+                                  </div>
+                                  <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
+                                  <div class="form-group row mb-0">
+                                    <label for="" class="col-form-label col-form-label-sm col-sm-3">MAC :</label>
+                                    <div class="col-sm-9">
+                                      <input type="text" class="form-control form-control-sm" id="" name="">
+                                    </div>
+                                  </div>
+                                  <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
                                 </div>
-
-                                <div class="form-group col-md-3">
-                                  <label for="newAsigSerie" class="col-form-label col-form-label-sm">Serie:</label>
-                                  <!-- <input type="text" class="form-control form-control-sm" id="inputEmail4"> -->
-                                  <select class="form-control form-control-sm" id="newAsigSerie" name="newAsigSerie" style="width:100%">
-                                    <option value="">Elije producto</option>
-        														<?php $prod = $con->query("SELECT * FROM equipo WHERE cantidad_equipo <> 0 ");
-        																while ($row = $prod->fetch_assoc()) {
-        																	echo "<option value='".$row['id_equipo']."' ";
-        																	echo ">";
-        																	echo $row['serie_equipo'];
-        																	echo "</option>";
-        																}
-        														?>
-                                  </select>
-                                </div>
-
                               </div>
-
-                              <!-- 2da FILA  -->
-                              <div class="form-row">
-
-                                <div class="form-group col-md-3">
-                                  <label for="newAsigCateg" class="col-form-label col-form-label-sm">Categoria</label>
-                                  <!-- <input type="text" class="form-control form-control-sm" id="newAsigCateg" name="newAsigCateg" readonly> -->
-                                  <select class="form-control form-control-sm" id="newAsigCateg" name="newAsigCateg" style="width:100%" disabled>
-                                    <option value="">Pertenece a...</option>
-                                    <?php $ctg = $con->query("SELECT * FROM categoria");
-                                        while ($row = $ctg->fetch_assoc()) {
-                                          echo "<option value='".$row['id_categoria']."' ";
-                                          echo ">";
-                                          echo $row['nom_categoria'];
-                                          echo "</option>";
-                                        }
-                                    ?>
-                                  </select>
-                                </div>
-                                <div class="form-group col-md-3">
-                                  <label for="newAsigMarca" class="col-form-label col-form-label-sm">Marca</label>
-                                  <input type="text" class="form-control form-control-sm" id="newAsigMarca" name="newAsigMarca" readonly>
-                                </div>
-                                <div class="form-group col-md-3">
-                                  <label for="newAsigModel" class="col-form-label col-form-label-sm">Modelo</label>
-                                  <input type="text" class="form-control form-control-sm" id="newAsigModel" name="newAsigModel" readonly>
-                                </div>
-                                <div class="form-group col-md-3">
-                                  <label for="newAsigContrat" class="col-form-label col-form-label-sm">Contrato</label>
-                                  <!-- <input type="text" class="form-control form-control-sm" id="newAsigContrat" name="newAsigContrat" readonly> -->
-                                  <select class="form-control form-control-sm" id="newAsigContrat" name="newAsigContrat" style="width:100%" disabled>
-                                    <option value="">Pertenece a...</option>
-                                    <?php $ctg = $con->query("SELECT * FROM presentacion");
-                                        while ($row = $ctg->fetch_assoc()) {
-                                          echo "<option value='".$row['id_presentacion']."' ";
-                                          echo ">";
-                                          echo $row['nom_presentacion'];
-                                          echo "</option>";
-                                        }
-                                    ?>
-                                  </select>
-                                </div>
-
-                              </div>
-
+                              <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
                             </form>
                           </div>
                         </div>
@@ -179,10 +215,10 @@
 
                         <div class="row">
 
-                          <div class="col-sm-12">
+                          <div class="col-sm-12 text-center">
 
                             <button type="button" class="btn btn-sm btn-danger" id="btncleanAsig">
-                              <i class="fas fa-broom fa-sm"></i>
+                              <i class="fas fa-broom fa-sm"></i>Limpiar
                             </button>
                             <button type="button" class="btn btn-sm btn-info" id="btnaddAsig">
                               <i class="fas fa-plus mr-2 fa-sm"></i>Agregar

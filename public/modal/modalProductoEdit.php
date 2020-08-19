@@ -3,7 +3,7 @@
   <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalCenterTitle">Editar datos del Equipo</h5>
+        <h5 class="modal-title" id="exampleModalCenterTitle">Editar Equipo</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -14,95 +14,139 @@
           <input type="text" name="idEditProd" id="idEditProd" hidden>
 
           <!-- Fila 1 Form -->
+          <div class="row">
+            <!-- COLUMNA 1 Form -->
+            <div class="col-sm-6">
+              <div class="form-group row">
+                <label for="descEditProd" class="col-form-label col-form-label-sm col-sm-4">Nombre :</label>
+                <div class="col-sm-8">
+                  <input type="text"  class="form-control form-control-sm" name="descEditProd" id="descEditProd">
+                </div>
+              </div>
+              <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
+              <div class="form-group row">
+                <label for="cantEditProd" class=" col-form-label col-form-label-sm col-sm-4">Cantidad:</label>
+                <div class="col-sm-4">
+                  <input type="number" class="form-control form-control-sm" id="cantEditProd" name="cantEditProd">
+                </div>
+              </div>
+              <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
+              <div class="form-group row">
+                <label for="ctgsEditeProd" class="col-form-label col-form-label-sm col-sm-4">Categoria:</label>
+                <div class="col-sm-8">
+                  <select class="form-control form-control-sm" id="ctgsEditeProd" name="ctgsEditeProd" style="width:100%">
 
-          <div class="form-row">
-
-            <div class="form-group col-sm-6">
-              <label for="descEditProd" class="col-form-label col-form-label-sm">Descripcion:</label>
-              <input type="text"  class="form-control form-control-sm" name="descEditProd" id="descEditProd">
+                    <?php $ctg = $con->query("SELECT * FROM categoria");
+                        while ($row = $ctg->fetch_assoc()) {
+                          echo "<option value='".$row['id_categoria']."' ";
+                          echo ">";
+                          echo $row['nom_categoria'];
+                          echo "</option>";
+                        }
+                    ?>
+                  </select>
+                </div>
+              </div>
+              <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
+              <div class="card">
+                <div class="card-body">
+                  <div class="form-group row">
+                    <label for="ProcesEditProd" class="col-form-label col-form-label-sm col-sm-4">Procesador :</label>
+                    <div class="col-sm-6">
+                      <input type="text" class="form-control form-control-sm" id="ProcesEditProd" name="ProcesEditProd">
+                    </div>
+                  </div>
+                  <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
+                  <div class="form-group row">
+                    <label for="DiscoEditProd" class="col-form-label col-form-label-sm col-sm-4">Disco :</label>
+                    <div class="col-sm-4">
+                      <input type="text" class="form-control form-control-sm" id="DiscoEditProd" name="DiscoEditProd">
+                    </div>
+                  </div>
+                  <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
+                  <div class="form-group row">
+                    <label for="ramEditProd" class="col-form-label col-form-label-sm col-sm-4">RAM :</label>
+                    <div class="col-sm-4">
+                      <input type="text" class="form-control form-control-sm" id="ramEditProd" name="ramEditProd">
+                    </div>
+                  </div>
+                  <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
+                  <div class="form-group row">
+                    <label for="soEditProd" class="col-form-label col-form-label-sm col-sm-4">S.O. :</label>
+                    <div class="col-sm-6">
+                      <input type="text" class="form-control form-control-sm" id="soEditProd" name="soEditProd">
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
+            <!-- COLUMNA 2 Form -->
+            <div class="col-sm-6">
+              <div class="form-group row">
+                <label for="serieEditProd" class="col-form-label col-form-label-sm col-sm-4">Serie:</label>
+                <div class="col-sm-8">
+                  <input type="text" class="form-control form-control-sm" id="serieEditProd" name="serieEditProd">
+                </div>
+              </div>
+              <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
+              <div class="form-group row">
+                <label for="marcaEditProd" class="col-form-label col-form-label-sm col-sm-4">Marca:</label>
+                <div class="col-sm-8">
+                  <input type="text" class="form-control form-control-sm" id="marcaEditProd" name="marcaEditProd">
+                </div>
+              </div>
+              <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
+              <div class="form-group row">
+                <label for="modeloEditProd" class="col-form-label col-form-label-sm col-sm-4">Modelo:</label>
+                <div class="col-sm-8">
+                  <input type="text" class="form-control form-control-sm" id="modeloEditProd" name="modeloEditProd">
+                </div>
+              </div>
+              <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
+              <div class="form-group row">
+                <label for="af1EditProd" class="col-form-label col-form-label-sm col-sm-4">Activo:</label>
+                <div class="col-sm-8">
+                  <input type="text" class="form-control form-control-sm" id="af1EditProd" name="af1EditProd">
+                </div>
+              </div>
+              <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
+              <div class="form-group row">
+                <label for="af2EditProd" class="col-form-label col-form-label-sm col-sm-4">Activo2:</label>
+                <div class="col-sm-8">
+                  <input type="text" class="form-control form-control-sm" id="af2EditProd" name="af2EditProd">
+                </div>
+              </div>
+              <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
+              <hr>
+              <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
+              <div class="form-group row">
+                <label for="preseEditeProd" class="col-form-label col-form-label-sm col-sm-4">Contrato:</label>
+                <div class="col-sm-8">
+                  <select class="form-control form-control-sm" id="preseEditeProd" name="preseEditeProd" style="width:100%">
 
-            <div class="form-group col-sm-2">
-              <label for="cantEditProd" class=" col-form-label col-form-label-sm">Cantidad:</label>
-              <input type="number" class="form-control form-control-sm" id="cantEditProd" name="cantEditProd">
+                    <?php $ctg = $con->query("SELECT * FROM presentacion");
+                        while ($row = $ctg->fetch_assoc()) {
+                          echo "<option value='".$row['id_presentacion']."' ";
+                          echo ">";
+                          echo $row['nom_presentacion'];
+                          echo "</option>";
+                        }
+                    ?>
+                  </select>
+                </div>
+              </div>
+              <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
+              <div class="form-group row">
+                <label for="estadoEditProd" class="col-form-label col-form-label-sm col-sm-4">Estado:</label>
+                <div class="col-sm-8">
+                  <select class="form-control form-control-sm" id="estadoEditProd" name="estadoEditProd">
+                    <option value="1">Operativo</option>
+                    <option value="0">Inoperativo</option>
+                  </select>
+                </div>
+              </div>
             </div>
-
-          </div>
-
-          <!-- Fila 2 Form -->
-
-          <div class="form-row">
-
-            <div class="form-group col-sm-3">
-              <label for="ctgsEditeProd" class="col-form-label col-form-label-sm">Categoria:</label>
-              <select class="form-control form-control-sm" id="ctgsEditeProd" name="ctgsEditeProd" style="width:100%">
-                <option value="">Elije categoria</option>
-                <?php $ctg = $con->query("SELECT * FROM categoria");
-                    while ($row = $ctg->fetch_assoc()) {
-                      echo "<option value='".$row['id_categoria']."' ";
-                      echo ">";
-                      echo $row['nom_categoria'];
-                      echo "</option>";
-                    }
-                ?>
-              </select>
-            </div>
-
-            <div class="form-group col-sm-3">
-              <label for="serieEditProd" class="col-form-label col-form-label-sm">Serie:</label>
-              <input type="text" class="form-control form-control-sm" id="serieEditProd" name="serieEditProd">
-            </div>
-
-            <div class="form-group col-sm-3">
-              <label for="marcaEditProd" class="col-form-label col-form-label-sm">Marca:</label>
-              <input type="text" class="form-control form-control-sm" id="marcaEditProd" name="marcaEditProd">
-            </div>
-
-            <div class="form-group col-sm-3">
-              <label for="modeloEditProd" class="col-form-label col-form-label-sm">Modelo:</label>
-              <input type="text" class="form-control form-control-sm" id="modeloEditProd" name="modeloEditProd">
-            </div>
-
-
-          </div>
-
-          <!-- Fila 3 Form -->
-
-          <div class="form-row">
-
-            <div class="form-group col-sm-3">
-              <label for="af1EditProd" class="col-form-label col-form-label-sm">Activo:</label>
-              <input type="text" class="form-control form-control-sm" id="af1EditProd" name="af1EditProd">
-            </div>
-
-            <div class="form-group col-sm-3">
-              <label for="af2EditProd" class="col-form-label col-form-label-sm">Activo2:</label>
-              <input type="text" class="form-control form-control-sm" id="af2EditProd" name="af2EditProd">
-            </div>
-
-            <div class="form-group col-sm-3">
-              <label for="preseEditeProd" class="col-form-label col-form-label-sm">Contrato:</label>
-              <select class="form-control form-control-sm" id="preseEditeProd" name="preseEditeProd" style="width:100%">
-                <option value="">Elije el tipo...</option>
-                <?php $ctg = $con->query("SELECT * FROM presentacion");
-                    while ($row = $ctg->fetch_assoc()) {
-                      echo "<option value='".$row['id_presentacion']."' ";
-                      echo ">";
-                      echo $row['nom_presentacion'];
-                      echo "</option>";
-                    }
-                ?>
-              </select>
-            </div>
-
-            <div class="form-group col-sm-3">
-              <label for="estadoEditProd" class="col-form-label col-form-label-sm">Estado:</label>
-              <select class="form-control form-control-sm" id="estadoEditProd" name="estadoEditProd">
-                <option value="1">Operativo</option>
-                <option value="0">Inoperativo</option>
-              </select>
-            </div>
-
+            <!-- FIN Columna 2 Form -->
           </div>
 
           <!-- FIN Fila Form -->
