@@ -28,77 +28,64 @@
             <!-- Page Heading -->
 
             <div class="row">
+              <div class="col-6 text-left">
+                <h1 class="h3 mb-0 text-gray-800">Asignación de Equipo</h1>
+              </div>
+              <div class="col-6">
+                <ul class="nav nav-pills nav-pills-primary justify-content-end" id="pills-tab" role="tablist">
+                  <li class="nav-item">
+                    <a class="nav-link active" id="pills-list-tab" data-toggle="pill" href="#pills-list" role="tab" aria-controls="pills-list" aria-selected="true"><i class="fas fa-list mr-2 fa-sm"></i>Listado</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" id="pills-formAsig-tab" data-toggle="pill" href="#pills-formAsig" role="tab" aria-controls="pills-formAsig" aria-selected="false"><i class="far fa-file mr-2 fa-sm"></i>Nuevo</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="row mt-3">
               <div class="col-sm-12">
-                <div class="card">
 
+                <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
+                <div class="tab-content" id="pills-tabContent">
 
-                  <!-- HEADER CARD ------------------------ -->
+                  <!-- primer PANEL -->
 
-                  <div class="card-header d-flex flex-row align-items-center justify-content-between">
-                    <h6 class="m-0 font-weight-bold text-primary"><i class="fas fa-desktop mr-2"></i>Asignacion de Equipos</h6>
-                    <div class="no-arrow">
-                      <ul class="nav nav-pills nav-pills-primary justify-content-end" id="pills-tab" role="tablist">
-                        <li class="nav-item">
-                          <a class="nav-link active" id="pills-list-tab" data-toggle="pill" href="#pills-list" role="tab" aria-controls="pills-list" aria-selected="true"><i class="fas fa-list mr-2 fa-sm"></i>Listado</a>
-                        </li>
-                        <li class="nav-item">
-                          <a class="nav-link" id="pills-formAsig-tab" data-toggle="pill" href="#pills-formAsig" role="tab" aria-controls="pills-formAsig" aria-selected="false"><i class="far fa-file mr-2 fa-sm"></i>Registro</a>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-
-                  <!-- BODY CARD ------------------------------------ -->
-                  <div class="card-body">
-
-                    <div class="tab-content" id="pills-tabContent">
-
-                      <!-- primer PANEL -->
-
-                      <div class="tab-pane fade show active" id="pills-list" role="tabpanel" aria-labelledby="pills-list-tab">
+                  <div class="tab-pane fade show active" id="pills-list" role="tabpanel" aria-labelledby="pills-list-tab">
+                    <div class="card shadow-mb-4">
+                      <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary"><i class="fas fa-desktop mr-2"></i>Lista de Asignaciones</h6>
+                      </div>
+                      <div class="card-body">
                         <div id="tableAsig"></div>
                       </div>
+                    </div>
 
-                      <!-- segundo PANEL -->
+                  </div>
 
-                      <div class="tab-pane fade" id="pills-formAsig" role="tabpanel" aria-labelledby="pills-formAsig-tab">
+                  <!-- FINAL primer PANEL -->
 
-                        <!-- 1ra fila FORMULARIO  -->
-                        <div class="row">
-                          <div class="col-sm-12">
-                            <form id="formNewAsignament">
-                              <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
-                              <div class="row">
-                                <div class="col-sm-6">
-                                  <div class="form-group row">
-                                    <label for="newAsigSerie" class="col-form-label col-form-label-sm col-sm-3">Serie :</label>
-                                    <div class="col-sm-5">
-                                      <select class="form-control form-control-sm" id="newAsigSerie" name="newAsigSerie" style="width:100%">
-                                        <option value="">Elije producto</option>
-            														<?php $prod = $con->query("SELECT * FROM equipo WHERE cantidad_equipo <> 0 ");
-            																while ($row = $prod->fetch_assoc()) {
-            																	echo "<option value='".$row['id_equipo']."' ";
-            																	echo ">";
-            																	echo $row['serie_equipo'];
-            																	echo "</option>";
-            																}
-            														?>
-                                      </select>
-                                    </div>
-                                    <label for="newAsigCant" class="col-form-label col-form-label-sm col-sm-2">Cant:</label>
-                                    <div class="col-sm-2">
-                                      <input type="number" class="form-control form-control-sm" id="newAsigCant" name="newAsigCant">
-                                    </div>
-                                  </div>
-                                  <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
-                                  <!-- <div class="form-group row">
+                  <!-- segundo PANEL -->
 
+                  <div class="tab-pane fade" id="pills-formAsig" role="tabpanel" aria-labelledby="pills-formAsig-tab">
 
-                                  </div> -->
+                    <div class="card shadow">
+                      <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary"><i class="fas fa-desktop mr-2"></i>Registro de Asignación</h6>
+                      </div>
+                      <div class="card-body">
+
+                        <!-- inicio de FORMULARIO -->
+
+                        <form id="formNewAsignament">
+                          <div class="row">
+                            <div class="col-sm-6">
+                              <div class="card">
+                                <div class="card-body">
                                   <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
                                   <div class="form-group row">
-                                    <label for="newAsigEmp" class="col-form-label col-form-label-sm col-sm-3">Responsable:</label>
-                                    <div class="col-sm-9">
+                                    <label for="newAsigEmp" class="col-form-label col-form-label-sm col-sm-2">Usuario:</label>
+                                    <div class="col-sm-10">
                                       <select class="form-control form-control-sm" id="newAsigEmp" name="newAsigEmp" style="width:100%">
                                         <option >Elije cliente</option>
             														<?php $prod = $con->query("SELECT * FROM empleado");
@@ -116,29 +103,29 @@
                                   </div>
                                   <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
                                   <div class="form-group row">
-                                    <label for="newAsigArea" class="col-form-label col-form-label-sm col-sm-3">Ubicación :</label>
-                                    <div class="col-sm-9">
-                                      <select class="form-control form-control-sm" id="newAsigArea" name="newAsigArea" style="width:100%">
-                                        <option value="">Elije ubicacion</option>
-            														<?php $prod = $con->query("SELECT * FROM area");
-            																while ($row = $prod->fetch_assoc()) {
-            																	echo "<option value='".$row['id_area']."' ";
-            																	echo ">";
-            																	echo $row['nom_area'];
-            																	echo "</option>";
-            																}
-            														?>
+                                    <label for="newAsigSerie" class="col-form-label col-form-label-sm col-sm-2">Serie :</label>
+                                    <div class="col-sm-5">
+                                      <select class="form-control form-control-sm" id="newAsigSerie" name="newAsigSerie" style="width:100%">
+                                        <option value="">Elije producto</option>
+                                        <?php $prod = $con->query("SELECT * FROM equipo WHERE cantidad_equipo <> 0 ");
+                                            while ($row = $prod->fetch_assoc()) {
+                                              echo "<option value='".$row['id_equipo']."' ";
+                                              echo ">";
+                                              echo $row['serie_equipo'];
+                                              echo "</option>";
+                                            }
+                                        ?>
                                       </select>
+                                    </div>
+                                    <label for="newAsigCant" class="col-form-label col-form-label-sm col-sm-2">Und.</label>
+                                    <div class="col-sm-3">
+                                      <input type="number" class="form-control form-control-sm" id="newAsigCant" name="newAsigCant">
                                     </div>
                                   </div>
                                   <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
-
-                                </div>
-                                <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
-                                <div class="col-sm-3">
                                   <div class="form-group row">
-                                    <label for="newAsigCateg" class="col-form-label col-form-label-sm col-sm-3">T :</label>
-                                    <div class="col-sm-9">
+                                    <label for="newAsigCateg" class="col-form-label col-form-label-sm col-sm-2">Tipo:</label>
+                                    <div class="col-sm-4">
                                       <select class="form-control form-control-sm" id="newAsigCateg" name="newAsigCateg" style="width:100%" disabled>
                                         <option value="">Pertenece a...</option>
                                         <?php $ctg = $con->query("SELECT * FROM categoria");
@@ -151,18 +138,15 @@
                                         ?>
                                       </select>
                                     </div>
-                                  </div>
-                                  <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
-                                  <div class="form-group row">
-                                    <label for="newAsigMarca" class="col-form-label col-form-label-sm col-sm-3">M :</label>
-                                    <div class="col-sm-9">
+                                    <label for="newAsigMarca" class="col-form-label col-form-label-sm col-sm-2">Marca:</label>
+                                    <div class="col-sm-4">
                                       <input type="text" class="form-control form-control-sm" id="newAsigMarca" name="newAsigMarca" readonly>
                                     </div>
                                   </div>
                                   <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
-                                  <div class="form-group row mb-0">
-                                    <label for="newAsigContrat" class="col-form-label col-form-label-sm col-sm-3">Cto :</label>
-                                    <div class="col-sm-9">
+                                  <div class="form-group row">
+                                    <label for="newAsigContrat" class="col-form-label col-form-label-sm col-sm-2">Cto :</label>
+                                    <div class="col-sm-10">
                                       <select class="form-control form-control-sm" id="newAsigContrat" name="newAsigContrat" style="width:100%" disabled>
                                         <option value="">Pertenece a...</option>
                                         <?php $ctg = $con->query("SELECT * FROM presentacion");
@@ -177,48 +161,122 @@
                                     </div>
                                   </div>
                                   <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
-
-                                  <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
-
-                                </div>
-                                <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
-                                <div class="col-sm-3">
                                   <div class="form-group row">
-                                    <label for="" class="col-form-label col-form-label-sm col-sm-3">ELS :</label>
-                                    <div class="col-sm-9">
-                                      <input type="text" class="form-control form-control-sm" id="" name="">
-                                    </div>
-                                  </div>
-                                  <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
-                                  <div class="form-group row">
-                                    <label for="" class="col-form-label col-form-label-sm col-sm-3">IP :</label>
-                                    <div class="col-sm-9">
-                                      <input type="text" class="form-control form-control-sm" id="" name="">
+                                    <label for="newAsigGerencia" class="col-form-label col-form-label-sm col-sm-2">Gerencia:</label>
+                                    <div class="col-sm-10">
+                                      <select class="form-control form-control-sm" id="newAsigGerencia" name="newAsigGerencia" style="width:100%">
+                                        <option value="">Elije la gerencia</option>
+                                        <?php $gere = $con->query("SELECT * FROM gerencia");
+                                            while ($row = $gere->fetch_assoc()) {
+                                              echo "<option value='".$row['id_gerencia']."' ";
+                                              echo ">";
+                                              echo $row['nom_gerencia'];
+                                              echo "</option>";
+                                            }
+                                        ?>
+                                      </select>
                                     </div>
                                   </div>
                                   <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
                                   <div class="form-group row mb-0">
-                                    <label for="" class="col-form-label col-form-label-sm col-sm-3">MAC :</label>
-                                    <div class="col-sm-9">
+                                    <label for="newAsigArea" class="col-form-label col-form-label-sm col-sm-2">Lugar:</label>
+                                    <div class="col-sm-10">
+                                      <select class="form-control form-control-sm" id="newAsigArea" name="newAsigArea" style="width:100%">
+                                        <option value="">Elije ubicacion</option>
+                                        <?php $prod = $con->query("SELECT * FROM area");
+                                            while ($row = $prod->fetch_assoc()) {
+                                              echo "<option value='".$row['id_area']."' ";
+                                              echo ">";
+                                              echo $row['nom_area'];
+                                              echo "</option>";
+                                            }
+                                        ?>
+                                      </select>
+                                    </div>
+                                  </div>
+                                  <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-sm-6">
+                              <div class="card">
+                                <div class="card-body">
+                                  <div class="form-group row">
+                                    <label for="" class="col-form-label col-form-label-sm col-sm-2">Sist. Op.</label>
+                                    <div class="col-sm-10">
+                                      <input type="text" class="form-control form-control-sm" id="" name="" placeholder="Windows 10 ...">
+                                    </div>
+                                  </div>
+                                  <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
+                                  <div class="row py-2">
+                                    <div class="col-sm-12 text-center">
+                                      <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
+                                        <label class="form-check-label" for="inlineCheckbox1">AntiVirus</label>
+                                      </div>
+                                      <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
+                                        <label class="form-check-label" for="inlineCheckbox2">Office</label>
+                                      </div>
+                                      <div class="form-check form-check-inline">
+                                        <input class="form-check-input" type="checkbox" name="" id="inlineRadio3" value="option3">
+                                        <label class="form-check-label" for="inlineRadio3">WinZip</label>
+                                      </div>
+                                    </div>
+                                  </div>
+                                  <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
+                                  <div class="form-group row">
+                                    <label for="" class="col-form-label col-form-label-sm col-sm-2">CPU:</label>
+                                    <div class="col-sm-10">
+                                      <input type="text" class="form-control form-control-sm" id="" name="">
+                                    </div>
+                                  </div>
+                                  <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
+                                  <div class="form-group row">
+                                    <label for="" class="col-form-label col-form-label-sm col-sm-2">RAM:</label>
+                                    <div class="col-sm-4">
+                                      <input type="text" class="form-control form-control-sm" id="" name="">
+                                    </div>
+                                    <label for="" class="col-form-label col-form-label-sm col-sm-2">Disk:</label>
+                                    <div class="col-sm-4">
+                                      <input type="text" class="form-control form-control-sm" id="" name="">
+                                    </div>
+                                  </div>
+                                  <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
+                                  <div class="form-group row">
+                                    <label for="" class="col-form-label col-form-label-sm col-sm-2">ELS</label>
+                                    <div class="col-sm-10">
+                                      <input type="text" class="form-control form-control-sm" id="" name="" placeholder="Ej: ELS0100 , Anexo">
+                                    </div>
+                                  </div>
+                                  <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
+                                  <div class="form-group row mb-0">
+                                    <label for="" class="col-form-label col-form-label-sm col-sm-2">IP</label>
+                                    <div class="col-sm-4">
+                                      <input type="text" class="form-control form-control-sm" id="" name="">
+                                    </div>
+                                    <label for="" class="col-form-label col-form-label-sm col-sm-2">MAC</label>
+                                    <div class="col-sm-4">
                                       <input type="text" class="form-control form-control-sm" id="" name="">
                                     </div>
                                   </div>
                                   <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
                                 </div>
                               </div>
-                              <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
-                            </form>
+                            </div>
                           </div>
-                        </div>
+                        </form>
+
+                        <!-- final de FORMULARIO -->
 
                         <!-- 2da fila BOTONES  -->
 
-                        <div class="row">
+                        <div class="row mt-3">
 
                           <div class="col-sm-12 text-center">
 
                             <button type="button" class="btn btn-sm btn-danger" id="btncleanAsig">
-                              <i class="fas fa-broom fa-sm"></i>Limpiar
+                              <i class="fas fa-broom mr-2 fa-sm"></i>Limpiar
                             </button>
                             <button type="button" class="btn btn-sm btn-info" id="btnaddAsig">
                               <i class="fas fa-plus mr-2 fa-sm"></i>Agregar
@@ -237,20 +295,18 @@
                         </div>
 
                       </div>
-
-
                     </div>
-
                   </div>
-                  <!-- FIN DE CARD BODY -->
 
+                  <!-- FINAL segundo PANEL -->
 
                 </div>
+                <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< fin content-->
+
               </div>
             </div>
 
             <!-- Content Row -->
-
 
           </div>
         </div>

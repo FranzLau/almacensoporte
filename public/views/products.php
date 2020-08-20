@@ -96,14 +96,16 @@
                                 </div>
                               </div>
                               <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
-                              <!-- <div class="form-group row">
-
-
-                              </div> -->
+                              <div class="form-group row">
+                                <label for="cantNewProd" class="col-form-label col-form-label-sm col-sm-3">Cant.</label>
+                                <div class="col-sm-3">
+                                  <input type="number" class="form-control form-control-sm" id="cantNewProd" name="cantNewProd">
+                                </div>
+                              </div>
                               <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
                               <div class="form-group row">
                                 <label for="catgNewProd" class="col-form-label col-form-label-sm col-sm-3">Tipo :</label>
-                                <div class="col-sm-5">
+                                <div class="col-sm-6">
                                   <select class="form-control form-control-sm" id="catgNewProd" name="catgNewProd" style="width:100%">
                                   <option value="">Elije categoria</option>
                                     <?php $ctg = $con->query("SELECT * FROM categoria");
@@ -116,44 +118,31 @@
                                     ?>
                                   </select>
                                 </div>
-                                <label for="cantNewProd" class="col-form-label col-form-label-sm col-sm-2">Cant.</label>
-                                <div class="col-sm-2">
-                                  <input type="number" class="form-control form-control-sm" id="cantNewProd" name="cantNewProd">
-                                </div>
-                              </div>
-                              <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
-                              <hr>
-                              <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
-                              <div class="form-group row">
-                                <label for="procesNewProd" class="col-form-label col-form-label-sm col-sm-3">CPU :</label>
-                                <div class="col-sm-3">
-                                  <input type="text" class="form-control form-control-sm" name="procesNewProd" id="procesNewProd">
-                                </div>
-                                <label for="ramNewProd" class="col-form-label col-form-label-sm col-sm-3">RAM :</label>
-                                <div class="col-sm-3">
-                                  <input type="text" class="form-control form-control-sm" name="ramNewProd" id="ramNewProd">
-                                </div>
+
                               </div>
                               <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
                               <div class="form-group row">
-                                <label for="discoNewProd" class="col-form-label col-form-label-sm col-sm-3">Disk:</label>
-                                <div class="col-sm-3">
-                                  <input type="text" class="form-control form-control-sm" name="discoNewProd" id="discoNewProd">
-                                </div>
-                                <label for="soNewProd" class="col-form-label col-form-label-sm col-sm-2">S.O. :</label>
-                                <div class="col-sm-4">
-                                  <input type="text" class="form-control form-control-sm" name="soNewProd" id="soNewProd">
+                                <label for="presentNewProd" class="col-form-label col-form-label-sm col-sm-3">Contrato::</label>
+                                <div class="col-sm-6">
+                                  <select class="form-control form-control-sm" id="presentNewProd" name="presentNewProd" style="width:100%">
+                                    <option value="">Elije el contrato</option>
+                                    <?php $ctg = $con->query("SELECT * FROM presentacion");
+                                        while ($row = $ctg->fetch_assoc()) {
+                                          echo "<option value='".$row['id_presentacion']."' ";
+                                          echo ">";
+                                          echo $row['nom_presentacion'];
+                                          echo "</option>";
+                                        }
+                                    ?>
+                                  </select>
                                 </div>
                               </div>
                               <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
-
-
                               <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
-
-
+                              <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
                             </div>
                             <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
-                            <div class="col-sm-6 pl-5">
+                            <div class="col-sm-6">
 
                               <div class="form-group row">
                                 <label for="serieNewProd" class="col-form-label col-form-label-sm col-sm-2">Serie:</label>
@@ -184,26 +173,11 @@
                                 </div>
                               </div>
                               <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
-                              <div class="form-group row">
-                                <label for="presentNewProd" class="col-form-label col-form-label-sm col-sm-4">Contrato::</label>
-                                <div class="col-sm-8">
-                                  <select class="form-control form-control-sm" id="presentNewProd" name="presentNewProd" style="width:100%">
-                                    <option value="">Elije el tipo...</option>
-                                    <?php $ctg = $con->query("SELECT * FROM presentacion");
-                                        while ($row = $ctg->fetch_assoc()) {
-                                          echo "<option value='".$row['id_presentacion']."' ";
-                                          echo ">";
-                                          echo $row['nom_presentacion'];
-                                          echo "</option>";
-                                        }
-                                    ?>
-                                  </select>
-                                </div>
-                              </div>
+
                               <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
                               <div class="form-group row">
-                                <label for="estadoNewProd" class="col-form-label col-form-label-sm col-sm-4">Estado:</label>
-                                <div class="col-sm-8">
+                                <label for="estadoNewProd" class="col-form-label col-form-label-sm col-sm-3">Estado:</label>
+                                <div class="col-sm-9">
                                   <select class="form-control form-control-sm" id="estadoNewProd" name="estadoNewProd">
                                     <option value="1">Operativo</option>
                                     <option value="0">Inoperativo</option>
@@ -215,19 +189,11 @@
                             </div>
 
                           </div>
-                          <!-- ----------------Segunda Fila - ROW----------------------------->
-
-
-
-                          <!-- ----------------Tercera Fila - ROW----------------------------->
-
-
-
 
                           <!--***** FIN DEL FORMULARIO *******<<<<<<<-->
 
                         </form>
-                        <hr>
+                        <hr class="mt-0">
                         <div class="row">
                           <div class="col-sm-12 text-right">
                             <button type="button" class="btn btn-success btn-sm" id="btnCreateProd"><i class="fas fa-save mr-2 fa-sm text-white-50"></i>Guardar</button>
@@ -285,12 +251,6 @@
             $('#descEditProd').val(datos['ProdDesc']);
             $('#estadoEditProd').val(datos['ProdEsta']);
             $('#cantEditProd').val(datos['ProdCant']);
-
-            $('#ProcesEditProd').val(datos['ProdPros']);
-            $('#DiscoEditProd').val(datos['ProdDisco']);
-            $('#ramEditProd').val(datos['ProdRam']);
-            $('#soEditProd').val(datos['ProdSo']);
-
             $('#ctgsEditeProd').val(datos['ProdCtg']);
             $('#preseEditeProd').val(datos['ProdPst']);
           }

@@ -47,38 +47,25 @@
                   </select>
                 </div>
               </div>
+
               <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
-              <div class="card">
-                <div class="card-body">
-                  <div class="form-group row">
-                    <label for="ProcesEditProd" class="col-form-label col-form-label-sm col-sm-4">Procesador :</label>
-                    <div class="col-sm-6">
-                      <input type="text" class="form-control form-control-sm" id="ProcesEditProd" name="ProcesEditProd">
-                    </div>
-                  </div>
-                  <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
-                  <div class="form-group row">
-                    <label for="DiscoEditProd" class="col-form-label col-form-label-sm col-sm-4">Disco :</label>
-                    <div class="col-sm-4">
-                      <input type="text" class="form-control form-control-sm" id="DiscoEditProd" name="DiscoEditProd">
-                    </div>
-                  </div>
-                  <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
-                  <div class="form-group row">
-                    <label for="ramEditProd" class="col-form-label col-form-label-sm col-sm-4">RAM :</label>
-                    <div class="col-sm-4">
-                      <input type="text" class="form-control form-control-sm" id="ramEditProd" name="ramEditProd">
-                    </div>
-                  </div>
-                  <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
-                  <div class="form-group row">
-                    <label for="soEditProd" class="col-form-label col-form-label-sm col-sm-4">S.O. :</label>
-                    <div class="col-sm-6">
-                      <input type="text" class="form-control form-control-sm" id="soEditProd" name="soEditProd">
-                    </div>
-                  </div>
+              <div class="form-group row">
+                <label for="preseEditeProd" class="col-form-label col-form-label-sm col-sm-4">Contrato:</label>
+                <div class="col-sm-8">
+                  <select class="form-control form-control-sm" id="preseEditeProd" name="preseEditeProd" style="width:100%">
+
+                    <?php $ctg = $con->query("SELECT * FROM presentacion");
+                        while ($row = $ctg->fetch_assoc()) {
+                          echo "<option value='".$row['id_presentacion']."' ";
+                          echo ">";
+                          echo $row['nom_presentacion'];
+                          echo "</option>";
+                        }
+                    ?>
+                  </select>
                 </div>
               </div>
+              <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
             </div>
             <!-- COLUMNA 2 Form -->
             <div class="col-sm-6">
@@ -117,24 +104,7 @@
                 </div>
               </div>
               <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
-              <hr>
-              <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
-              <div class="form-group row">
-                <label for="preseEditeProd" class="col-form-label col-form-label-sm col-sm-4">Contrato:</label>
-                <div class="col-sm-8">
-                  <select class="form-control form-control-sm" id="preseEditeProd" name="preseEditeProd" style="width:100%">
-
-                    <?php $ctg = $con->query("SELECT * FROM presentacion");
-                        while ($row = $ctg->fetch_assoc()) {
-                          echo "<option value='".$row['id_presentacion']."' ";
-                          echo ">";
-                          echo $row['nom_presentacion'];
-                          echo "</option>";
-                        }
-                    ?>
-                  </select>
-                </div>
-              </div>
+            
               <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
               <div class="form-group row">
                 <label for="estadoEditProd" class="col-form-label col-form-label-sm col-sm-4">Estado:</label>

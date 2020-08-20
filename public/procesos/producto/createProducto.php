@@ -9,12 +9,6 @@
 	$descNewProd = $_POST['descNewProd'];
 	$estNewProd = $_POST['estadoNewProd'];
 	$cantNewProd = $_POST['cantNewProd'];
-
-	$procesaProd = $_POST['procesNewProd'];
-	$discoProd = $_POST['discoNewProd'];
-	$ramProd = $_POST['ramNewProd'];
-	$soProd = $_POST['soNewProd'];
-
 	$ctgNewProd = $_POST['catgNewProd'];
 	$pstNewProd = $_POST['presentNewProd'];
 
@@ -31,10 +25,6 @@
 																						descripcion_equipo,
 																						estado_equipo,
 																						cantidad_equipo,
-																						procesador_equipo,
-																						disco_equipo,
-																						ram_equipo,
-																						so_equipo,
 																						id_categoria,
 																						id_presentacion)
 														VALUES ('$serieNewProd',
@@ -45,10 +35,6 @@
 																		'$descNewProd',
 																		'$estNewProd',
 																		'$cantNewProd',
-																		'$procesaProd',
-																		'$discoProd',
-																		'$ramProd',
-																		'$soProd',
 																		'$ctgNewProd',
 																		'$pstNewProd')");
 		if ($res) {

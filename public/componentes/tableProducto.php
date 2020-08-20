@@ -36,12 +36,12 @@
         <tr>
 
           <td><?php echo $mostrarprod[6] ?></td>
-          <td><?php echo $obj->nameCategory( $mostrarprod[13]) ?></td>
+          <td><?php echo $obj->nameCategory( $mostrarprod[9]) ?></td>
           <td><?php echo $mostrarprod[4] ?></td>
           <td><?php echo $mostrarprod[1] ?></td>
           <td><?php echo $mostrarprod[2] ?></td>
           <td><?php echo $mostrarprod[8] ?></td>
-          <td><?php echo $obj->namePresentation( $mostrarprod[14]) ?></td>
+          <td><?php echo $obj->namePresentation( $mostrarprod[10]) ?></td>
           <td class="text-center">
             <a href="#" class="btn-link-view mr-3" title="Ver Detalles"><i class="fas fa-eye"></i></a>
             <!-- <a href="productsUpdate.php?idpc=<?php echo $mostrarprod[0] ?>" class="btn-link-view mr-3" title="Detalles"><i class="fas fa-eye"></i></a> -->

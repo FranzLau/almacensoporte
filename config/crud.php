@@ -54,12 +54,8 @@ class crud
 						'ProdDesc'=>$datoProd[6],
 						'ProdEsta'=>$datoProd[7],
 						'ProdCant'=>$datoProd[8],
-            'ProdPros'=>$datoProd[9],
-            'ProdDisco'=>$datoProd[10],
-            'ProdRam'=>$datoProd[11],
-            'ProdSo'=>$datoProd[12],
-            'ProdCtg'=>$datoProd[13],
-						'ProdPst'=>$datoProd[14]);
+            'ProdCtg'=>$datoProd[9],
+						'ProdPst'=>$datoProd[10]);
 		return $datos;
 	}
   public function deleteProducto($idprod){
