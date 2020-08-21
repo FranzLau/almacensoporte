@@ -83,24 +83,7 @@
                               <div class="card">
                                 <div class="card-body">
                                   <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
-                                  <div class="form-group row">
-                                    <label for="newAsigEmp" class="col-form-label col-form-label-sm col-sm-2">Usuario:</label>
-                                    <div class="col-sm-10">
-                                      <select class="form-control form-control-sm" id="newAsigEmp" name="newAsigEmp" style="width:100%">
-                                        <option >Elije cliente</option>
-            														<?php $prod = $con->query("SELECT * FROM empleado");
-            															while ($row = $prod->fetch_assoc()) {
-            																echo "<option value='".$row['id_emp']."' ";
-            																echo ">";
-            																echo $row['nom_emp'];
-            																echo " ";
-            																echo $row['ape_emp'];
-            																echo "</option>";
-            															}
-            														?>
-                                      </select>
-                                    </div>
-                                  </div>
+
                                   <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
                                   <div class="form-group row">
                                     <label for="newAsigSerie" class="col-form-label col-form-label-sm col-sm-2">Serie :</label>
@@ -144,7 +127,7 @@
                                     </div>
                                   </div>
                                   <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
-                                  <div class="form-group row">
+                                  <div class="form-group row mb-0">
                                     <label for="newAsigContrat" class="col-form-label col-form-label-sm col-sm-2">Cto :</label>
                                     <div class="col-sm-10">
                                       <select class="form-control form-control-sm" id="newAsigContrat" name="newAsigContrat" style="width:100%" disabled>
@@ -157,6 +140,40 @@
                                               echo "</option>";
                                             }
                                         ?>
+                                      </select>
+                                    </div>
+                                  </div>
+                                  <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
+
+                                  <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
+                                  <!-- <div class="form-group row mb-0">
+
+                                  </div> -->
+                                  <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
+
+                                  <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
+                                </div>
+                              </div>
+                            </div>
+                            <div class="col-sm-6">
+                              <div class="card">
+                                <div class="card-body">
+                                  <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
+                                  <div class="form-group row">
+                                    <label for="newAsigEmp" class="col-form-label col-form-label-sm col-sm-2">Usuario:</label>
+                                    <div class="col-sm-10">
+                                      <select class="form-control form-control-sm" id="newAsigEmp" name="newAsigEmp" style="width:100%">
+                                        <option >Elije cliente</option>
+            														<?php $prod = $con->query("SELECT * FROM empleado");
+            															while ($row = $prod->fetch_assoc()) {
+            																echo "<option value='".$row['id_emp']."' ";
+            																echo ">";
+            																echo $row['nom_emp'];
+            																echo " ";
+            																echo $row['ape_emp'];
+            																echo "</option>";
+            															}
+            														?>
                                       </select>
                                     </div>
                                   </div>
@@ -179,7 +196,7 @@
                                   </div>
                                   <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
                                   <div class="form-group row mb-0">
-                                    <label for="newAsigArea" class="col-form-label col-form-label-sm col-sm-2">Lugar:</label>
+                                    <label for="newAsigArea" class="col-form-label col-form-label-sm col-sm-2">Area:</label>
                                     <div class="col-sm-10">
                                       <select class="form-control form-control-sm" id="newAsigArea" name="newAsigArea" style="width:100%">
                                         <option value="">Elije ubicacion</option>
@@ -195,72 +212,30 @@
                                     </div>
                                   </div>
                                   <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
+
+                                  <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
                                 </div>
                               </div>
                             </div>
-                            <div class="col-sm-6">
+                          </div>
+                          <div class="row mt-3">
+                            <div class="col-sm-12">
                               <div class="card">
                                 <div class="card-body">
-                                  <div class="form-group row">
-                                    <label for="" class="col-form-label col-form-label-sm col-sm-2">Sist. Op.</label>
-                                    <div class="col-sm-10">
-                                      <input type="text" class="form-control form-control-sm" id="" name="" placeholder="Windows 10 ...">
-                                    </div>
-                                  </div>
-                                  <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
-                                  <div class="row py-2">
-                                    <div class="col-sm-12 text-center">
-                                      <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-                                        <label class="form-check-label" for="inlineCheckbox1">AntiVirus</label>
-                                      </div>
-                                      <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-                                        <label class="form-check-label" for="inlineCheckbox2">Office</label>
-                                      </div>
-                                      <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="checkbox" name="" id="inlineRadio3" value="option3">
-                                        <label class="form-check-label" for="inlineRadio3">WinZip</label>
-                                      </div>
-                                    </div>
-                                  </div>
-                                  <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
-                                  <div class="form-group row">
-                                    <label for="" class="col-form-label col-form-label-sm col-sm-2">CPU:</label>
-                                    <div class="col-sm-10">
-                                      <input type="text" class="form-control form-control-sm" id="" name="">
-                                    </div>
-                                  </div>
-                                  <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
-                                  <div class="form-group row">
-                                    <label for="" class="col-form-label col-form-label-sm col-sm-2">RAM:</label>
-                                    <div class="col-sm-4">
-                                      <input type="text" class="form-control form-control-sm" id="" name="">
-                                    </div>
-                                    <label for="" class="col-form-label col-form-label-sm col-sm-2">Disk:</label>
-                                    <div class="col-sm-4">
-                                      <input type="text" class="form-control form-control-sm" id="" name="">
-                                    </div>
-                                  </div>
-                                  <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
-                                  <div class="form-group row">
-                                    <label for="" class="col-form-label col-form-label-sm col-sm-2">ELS</label>
-                                    <div class="col-sm-10">
+                                  <div class="form-group row mb-0">
+                                    <label for="" class="col-form-label col-form-label-sm col-sm-1">ELS</label>
+                                    <div class="col-sm-2">
                                       <input type="text" class="form-control form-control-sm" id="" name="" placeholder="Ej: ELS0100 , Anexo">
                                     </div>
-                                  </div>
-                                  <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
-                                  <div class="form-group row mb-0">
-                                    <label for="" class="col-form-label col-form-label-sm col-sm-2">IP</label>
-                                    <div class="col-sm-4">
+                                    <label for="" class="col-form-label col-form-label-sm col-sm-1">IP</label>
+                                    <div class="col-sm-3">
                                       <input type="text" class="form-control form-control-sm" id="" name="">
                                     </div>
-                                    <label for="" class="col-form-label col-form-label-sm col-sm-2">MAC</label>
+                                    <label for="" class="col-form-label col-form-label-sm col-sm-1">MAC</label>
                                     <div class="col-sm-4">
                                       <input type="text" class="form-control form-control-sm" id="" name="">
                                     </div>
                                   </div>
-                                  <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
                                 </div>
                               </div>
                             </div>

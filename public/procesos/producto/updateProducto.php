@@ -10,6 +10,8 @@
 	$descProdEdit = $_POST['descEditProd'];
 	$estaProdEdit = $_POST['estadoEditProd'];
 	$cantProdEdit = $_POST['cantEditProd'];
+	$RamProdEdit = $_POST['ram_EditProd'];
+	$DiskProdEdit = $_POST['disk_EditProd'];
 	$idctgProdEdit = $_POST['ctgsEditeProd'];
 	$idpstProdEdit = $_POST['preseEditeProd'];
 
@@ -21,6 +23,8 @@
 																				descripcion_equipo='$descProdEdit',
 																				estado_equipo='$estaProdEdit',
 																				cantidad_equipo='$cantProdEdit',
+																				ram_equipo='$RamProdEdit',
+																				disco_equipo='$DiskProdEdit',
 																				id_categoria='$idctgProdEdit',
 																				id_presentacion='$idpstProdEdit'
 																	WHERE id_equipo= '$idProdEdit' ");

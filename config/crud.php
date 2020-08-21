@@ -54,8 +54,10 @@ class crud
 						'ProdDesc'=>$datoProd[6],
 						'ProdEsta'=>$datoProd[7],
 						'ProdCant'=>$datoProd[8],
-            'ProdCtg'=>$datoProd[9],
-						'ProdPst'=>$datoProd[10]);
+            'ProdRAM'=>$datoProd[9],
+            'ProdDisk'=>$datoProd[10],
+            'ProdCtg'=>$datoProd[11],
+						'ProdPst'=>$datoProd[12]);
 		return $datos;
 	}
   public function deleteProducto($idprod){
@@ -103,7 +105,7 @@ class crud
 		$sql = $con->query("DELETE FROM client WHERE id_cli = '$idcli' ");
 		return $sql;
 	}
-  //------------------------ PARA CATEGORIAS ROOM CONTROL ------------------------------
+  //------------------------ PARA CATEGORIAS CONTROL ------------------------------
 
 
   public function readDateCateg($idcateg){

@@ -11,7 +11,7 @@
   <body id="page-top">
 
     <?php include('../modal/modalProductoEdit.php'); ?>
-    <?php include('../modal/modalViewProducts.php'); ?>
+    <?php include('../modal/modalProductoView.php'); ?>
     <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
 
     <!-- Page Wrapper -->
@@ -90,22 +90,8 @@
                             <div class="col-sm-6">
 
                               <div class="form-group row">
-                                <label for="descNewProd" class="col-form-label col-form-label-sm col-sm-3">Descripción :</label>
-                                <div class="col-sm-9">
-                                  <input type="text" class="form-control form-control-sm" name="descNewProd" id="descNewProd">
-                                </div>
-                              </div>
-                              <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
-                              <div class="form-group row">
-                                <label for="cantNewProd" class="col-form-label col-form-label-sm col-sm-3">Cant.</label>
-                                <div class="col-sm-3">
-                                  <input type="number" class="form-control form-control-sm" id="cantNewProd" name="cantNewProd">
-                                </div>
-                              </div>
-                              <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
-                              <div class="form-group row">
-                                <label for="catgNewProd" class="col-form-label col-form-label-sm col-sm-3">Tipo :</label>
-                                <div class="col-sm-6">
+                                <label for="catgNewProd" class="col-form-label col-form-label-sm col-sm-3">Tipo:</label>
+                                <div class="col-sm-5">
                                   <select class="form-control form-control-sm" id="catgNewProd" name="catgNewProd" style="width:100%">
                                   <option value="">Elije categoria</option>
                                     <?php $ctg = $con->query("SELECT * FROM categoria");
@@ -120,24 +106,41 @@
                                 </div>
 
                               </div>
+
+
                               <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
                               <div class="form-group row">
-                                <label for="presentNewProd" class="col-form-label col-form-label-sm col-sm-3">Contrato::</label>
-                                <div class="col-sm-6">
-                                  <select class="form-control form-control-sm" id="presentNewProd" name="presentNewProd" style="width:100%">
-                                    <option value="">Elije el contrato</option>
-                                    <?php $ctg = $con->query("SELECT * FROM presentacion");
-                                        while ($row = $ctg->fetch_assoc()) {
-                                          echo "<option value='".$row['id_presentacion']."' ";
-                                          echo ">";
-                                          echo $row['nom_presentacion'];
-                                          echo "</option>";
-                                        }
-                                    ?>
-                                  </select>
+                                <label for="cantNewProd" class="col-form-label col-form-label-sm col-sm-3">Cant.</label>
+                                <div class="col-sm-3">
+                                  <input type="number" class="form-control form-control-sm" id="cantNewProd" name="cantNewProd" placeholder="0">
                                 </div>
                               </div>
                               <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
+                              <div class="form-group row">
+                                <label for="descNewProd" class="col-form-label col-form-label-sm col-sm-3">Descripción :</label>
+                                <div class="col-sm-9">
+                                  <input type="text" class="form-control form-control-sm" name="descNewProd" id="descNewProd">
+                                </div>
+                              </div>
+
+                              <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
+                              <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
+                              <div id="data_computer">
+                                <div class="card mb-3">
+                                  <div class="card-body border-left-success">
+                                    <div class="form-group row mb-0">
+                                      <label for="ramNewProd" class="col-form-label col-form-label-sm col-sm-3">RAM:</label>
+                                      <div class="col-sm-3">
+                                        <input type="text" class="form-control form-control-sm" id="ramNewProd" name="ram_NewProd">
+                                      </div>
+                                      <label for="diskNewProd" class="col-form-label col-form-label-sm col-sm-3">Disk:</label>
+                                      <div class="col-sm-3">
+                                        <input type="text" class="form-control form-control-sm" id="diskNewProd" name="disk_NewProd">
+                                      </div>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
                               <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
                               <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
                             </div>
@@ -177,10 +180,27 @@
                               <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
                               <div class="form-group row">
                                 <label for="estadoNewProd" class="col-form-label col-form-label-sm col-sm-3">Estado:</label>
-                                <div class="col-sm-9">
+                                <div class="col-sm-6">
                                   <select class="form-control form-control-sm" id="estadoNewProd" name="estadoNewProd">
                                     <option value="1">Operativo</option>
                                     <option value="0">Inoperativo</option>
+                                  </select>
+                                </div>
+                              </div>
+                              <!--<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<-->
+                              <div class="form-group row">
+                                <label for="presentNewProd" class="col-form-label col-form-label-sm col-sm-3">Contrato::</label>
+                                <div class="col-sm-6">
+                                  <select class="form-control form-control-sm" id="presentNewProd" name="presentNewProd" style="width:100%">
+                                    <option value="">Elije el contrato</option>
+                                    <?php $ctg = $con->query("SELECT * FROM presentacion");
+                                        while ($row = $ctg->fetch_assoc()) {
+                                          echo "<option value='".$row['id_presentacion']."' ";
+                                          echo ">";
+                                          echo $row['nom_presentacion'];
+                                          echo "</option>";
+                                        }
+                                    ?>
                                   </select>
                                 </div>
                               </div>
@@ -235,6 +255,30 @@
       });
     </script>
     <script type="text/javascript">
+      $(document).ready(function() {
+        $('#catgNewProd').change(function() {
+    			$.ajax({
+    				url: '../../public/procesos/category/readCategory.php',
+    				type: 'POST',
+    				data: "idcateg=" + $('#catgNewProd').val(),
+    				success:function(r){
+              var datos= $.parseJSON(r);
+              console.log("valores");
+              var nomCtg = datos['nomCategory'];
+              if (nomCtg == 'Laptop' || nomCtg == 'Desktop' || nomCtg == 'CPU') {
+                //mostrar inputs
+                $('#data_computer').slideDown();
+                console.log("lookform");
+              }else {
+                $('#data_computer').slideUp();
+                console.log("nolookform");
+              }
+    				}
+    			})
+				});
+      });
+    </script>
+    <script type="text/javascript">
       function ReadProduct(idprod){
         $.ajax({
           url: '../../public/procesos/producto/readProducto.php',
@@ -251,8 +295,43 @@
             $('#descEditProd').val(datos['ProdDesc']);
             $('#estadoEditProd').val(datos['ProdEsta']);
             $('#cantEditProd').val(datos['ProdCant']);
+            $('#ramEditProd').val(datos['ProdRAM']);
+            $('#diskEditProd').val(datos['ProdDisk']);
             $('#ctgsEditeProd').val(datos['ProdCtg']);
             $('#preseEditeProd').val(datos['ProdPst']);
+          }
+        })
+        .done(function(r) {
+          console.log(r);
+        })
+        .fail(function() {
+          console.log("error");
+        })
+        .always(function() {
+          console.log("complete");
+        });
+      }
+      function ViewProduct(idprod){
+        $.ajax({
+          url: '../../public/procesos/producto/readProducto.php',
+          type: 'POST',
+          data: "idprod=" + idprod,
+          success:function(r){
+            var datos= $.parseJSON(r);
+            $('#id_ViewProd').val(datos['ProdId']);
+            $('#serieViewProd').val(datos['ProdSerie']);
+            $('#marcaViewProd').val(datos['ProdMarca']);
+            $('#modeloViewProd').val(datos['ProdModel']);
+            $('#af1ViewProd').val(datos['ProdAf1']);
+            $('#af2ViewProd').val(datos['ProdAf2']);
+            $('#descViewProd').val(datos['ProdDesc']);
+            $('#estadoView_Prod').val(datos['ProdEsta']);
+            $('#cantViewProd').val(datos['ProdCant']);
+            $('#ramViewProd').val(datos['ProdRAM']);
+            $('#diskViewProd').val(datos['ProdDisk']);
+            $('#ctgsViewProd').val(datos['ProdCtg']);
+            $('#preseView_Prod').val(datos['ProdPst']);
+            console.log("look");
           }
         })
         .done(function(r) {
@@ -288,39 +367,39 @@
       }
     </script>
     <script type="text/javascript">
-    function ViewProduct(idprod){
-      $.ajax({
-        url: '../../public/procesos/producto/readProducto.php',
-        type: 'POST',
-        data: "idprod=" + idprod,
-        success:function(r){
-          var datos= $.parseJSON(r);
-          //$('#idProdView').text(datos['ProdId']);
-          $('#nomviewProd').text(datos['ProdNomb']);
-          $('#serieViewProd').text(datos['ProdSerie']);
-          $('#ipViewProd').text(datos['ProdIP']);
-          $('#macViewProd').text(datos['ProdMac']);
-          $('#marcaViewProd').text(datos['ProdMarca']);
-          $('#modeloViewProd').text(datos['ProdModelo']);
-          $('#afViewProd').text(datos['ProdAf']);
-          $('#estadoViewProd').text(datos['ProdEstado']);
-          $('#sedeViewProd').text(datos['ProdSede']);
-          $('#obsViewProd').text(datos['ProdDetalle']);
-          $('#catgViewProd').text(datos['ProdIDcateg']);
-          $('#presentViewProd').text(datos['ProdIDpresent']);
-          $('#responViewProd').text(datos['ProdIDemp']);
-        }
-      })
-      .done(function(r) {
-        console.log(r);
-      })
-      .fail(function() {
-        console.log("error");
-      })
-      .always(function() {
-        console.log("complete");
-      });
-    }
+    // function ViewProduct(idprod){
+    //   $.ajax({
+    //     url: '../../public/procesos/producto/readProducto.php',
+    //     type: 'POST',
+    //     data: "idprod=" + idprod,
+    //     success:function(r){
+    //       var datos= $.parseJSON(r);
+    //       //$('#idProdView').text(datos['ProdId']);
+    //       $('#nomviewProd').text(datos['ProdNomb']);
+    //       $('#serieViewProd').text(datos['ProdSerie']);
+    //       $('#ipViewProd').text(datos['ProdIP']);
+    //       $('#macViewProd').text(datos['ProdMac']);
+    //       $('#marcaViewProd').text(datos['ProdMarca']);
+    //       $('#modeloViewProd').text(datos['ProdModelo']);
+    //       $('#afViewProd').text(datos['ProdAf']);
+    //       $('#estadoViewProd').text(datos['ProdEstado']);
+    //       $('#sedeViewProd').text(datos['ProdSede']);
+    //       $('#obsViewProd').text(datos['ProdDetalle']);
+    //       $('#catgViewProd').text(datos['ProdIDcateg']);
+    //       $('#presentViewProd').text(datos['ProdIDpresent']);
+    //       $('#responViewProd').text(datos['ProdIDemp']);
+    //     }
+    //   })
+    //   .done(function(r) {
+    //     console.log(r);
+    //   })
+    //   .fail(function() {
+    //     console.log("error");
+    //   })
+    //   .always(function() {
+    //     console.log("complete");
+    //   });
+    // }
     </script>
   </body>
 </html>
