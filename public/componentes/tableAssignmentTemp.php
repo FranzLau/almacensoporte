@@ -27,10 +27,11 @@
 	         ?>
 	         <tr>
 	           <td><?php echo $d[6]; ?></td>
-	           <td><?php echo $d[7]; ?></td>
-	           <td><?php echo $obj->nameCategory($d[8]); ?></td>
+	           <td><?php echo $d[9]; ?></td>
+						 <td><?php echo $d[7]; ?></td>
+						 <td><?php echo $d[5]; ?></td>
+	           <!-- <td><?php //echo $obj->nameCategory($d[8]); ?></td> -->
 	           <td><?php echo $d[4]; ?></td>
-	           <td><?php echo $d[3]; ?></td>
 	           <td class="text-center">
 	             <button class="btn btn-danger btn-sm" onclick="RemoveArticle('<?php echo $i; ?>')">
 								 <i class="fas fa-times"></i>
@@ -40,8 +41,8 @@
 	         <?php
 	           //$total = $total + $st;
 	           $i++;
-	           $cliente = $d[1];
-						 $ubicacion = $obj->nameArea($d[9]);
+	           $cliente = $d[2];
+						 $ubicacion = $obj->nameArea($d[12]);
 	           }
 	         endif;
 	       ?>
