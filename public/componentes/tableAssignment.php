@@ -11,7 +11,7 @@
         <th>FOLIO</th>
         <th>FECHA</th>
         <th>RESPONSABLE</th>
-        <th>SEDE</th>
+        <th>ÁREA</th>
         <th class="text-center">ACCIONES</th>
       </tr>
     </thead>
@@ -20,7 +20,7 @@
         <th>FOLIO</th>
         <th>FECHA</th>
         <th>RESPONSABLE</th>
-        <th>SEDE</th>
+        <th>ÁREA</th>
         <th class="text-center">ACCIONES</th>
       </tr>
     </tfoot>
@@ -29,8 +29,8 @@
         <tr>
           <td><?php echo $verAsig[0] ?></td>
           <td><?php echo $verAsig[1] ?></td>
-          <td><?php echo $obj->nombEmpleado($verAsig[4]) ?></td>
-          <td><?php echo $obj->nameArea($verAsig[3]) ?></td>
+          <td><?php echo $obj->nombEmpleado($verAsig[3]) ?></td>
+          <td><?php echo $obj->nameArea($verAsig[10]) ?></td>
           <td class="text-center">
             <!-- <a href="#" class="badge badge-outline-danger" data-toggle="modal" data-target="#modalCloseBox" onclick="obtenDataOpenbox('<?php echo $verDom[0] ?>')"><i class="fas fa-exclamation-circle mr-2"></i>Abierta</a> -->
 

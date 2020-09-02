@@ -31,17 +31,17 @@
 
             <div class="row">
               <div class="col-6 text-left">
-                <h1 class="h3 mb-0 text-gray-800">Dominios</h1>
+                <h1 class="h3 mb-0 text-gray-800">INVENTARIO</h1>
               </div>
               <div class="col-6">
-                <ul class="nav nav-pills nav-pills-primary justify-content-end" id="pills-tab" role="tablist">
+                <!-- <ul class="nav nav-pills nav-pills-primary justify-content-end" id="pills-tab" role="tablist">
                   <li class="nav-item">
                     <a class="nav-link active" id="pills-home-tab" data-toggle="pill" href="#pills-home" role="tab" aria-controls="pills-home" aria-selected="true"><i class="fas fa-list mr-2 fa-sm"></i>Listado</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false"><i class="fas fa-plus mr-2 fa-sm"></i>Nuevo</a>
                   </li>
-                </ul>
+                </ul> -->
               </div>
             </div>
 
@@ -49,110 +49,18 @@
 
             <div class="row mt-3">
               <div class="col-sm-12">
-                <div class="tab-content" id="pills-tabContent">
-                  <div class="tab-pane fade show active" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
-                    <div class="card shadow mb-4">
-                      <div class="card-header">
-                        <h6 class="m-0 font-weight-bold text-primary"><i class="fas fa-desktop mr-2"></i>Lista de Equipos</h6>
-                      </div>
-                      <div class="card-body">
-                        <div id="tableDomin"></div>
-                      </div>
-                    </div>
+
+
+                <div class="card shadow mb-4">
+                  <div class="card-header">
+                    <h6 class="m-0 font-weight-bold text-primary"><i class="fas fa-desktop mr-2"></i>Lista de Equipos</h6>
                   </div>
-                  <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
-                    <div class="card shadow">
-                      <div class="card-header d-flex flex-row align-items-center justify-content-between">
-                        <h6 class="m-0 font-weight-bold text-primary"><i class="fas fa-desktop mr-2"></i>Registro de Equipos</h6>
-                        <!-- <div class="no-arrow">
-                          <a href="configuration.php"><i class="fas fa-cog fa-fw text-gray-600"></i></a>
-                        </div> -->
-                      </div>
-                      <div class="card-body">
-
-                        <!-- Content Row -->
-
-                        <form id="">
-
-
-                          <!-- Content Form -->
-                          <div class="form-row">
-                            <div class="form-group col-md-3">
-                              <label for="responEquipo" class="col-form-label col-form-label-sm">Equipo:</label>
-                              <select class="form-control form-control-sm" id="responEquipo" name="responEquipo" style="width:100%">
-                                <option value="">Elije serie</option>
-                                <?php $ctg = $con->query("SELECT * FROM equipo");
-                                    while ($row = $ctg->fetch_assoc()) {
-                                      echo "<option value='".$row['id_equipo']."' ";
-                                      echo ">";
-                                      echo $row['serie_equipo'];
-                                      echo "</option>";
-                                    }
-                                ?>
-                              </select>
-                            </div>
-                            <div class="form-group col-md-3">
-                              <label for="nombNewProd" class="col-form-label col-form-label-sm">Nombre:</label>
-                              <input type="text" class="form-control form-control-sm" id="nombNewProd" name="nombNewProd">
-                            </div>
-                            <div class="form-group col-md-3">
-                              <label for="ipNewProd" class="col-form-label col-form-label-sm">IP:</label>
-                              <input type="text" class="form-control form-control-sm" id="ipNewProd" name="ipNewProd" placeholder="191.168.00.00">
-                            </div>
-                            <div class="form-group col-md-3">
-                              <label for="macNewProd" class="col-form-label col-form-label-sm">MAC:</label>
-                              <input type="text" class="form-control form-control-sm" id="macNewProd" name="macNewProd" placeholder="00:00:00:00:00">
-                            </div>
-
-                          </div>
-                          <div class="form-row">
-                            <div class="form-group col-md-6">
-                              <label for="responNewProd" class="col-form-label col-form-label-sm">Responsable:</label>
-                              <select class="form-control form-control-sm" id="responNewProd" name="responNewProd" style="width:100%">
-                                <option value="">Elije uno</option>
-                                <?php $ctg = $con->query("SELECT * FROM empleado");
-                                    while ($row = $ctg->fetch_assoc()) {
-                                      echo "<option value='".$row['id_emp']."' ";
-                                      echo ">";
-                                      echo $row['nom_emp'];
-                                      echo " ";
-                                      echo $row['ape_emp'];
-                                      echo "</option>";
-                                    }
-                                ?>
-                              </select>
-                            </div>
-                            <div class="form-group col-md-6">
-                              <label for="sedeNewProd" class="col-form-label col-form-label-sm">Gerencia</label>
-                              <select class="form-control form-control-sm" id="sedeNewProd" name="sedeNewProd" style="width:100%">
-                                <option selected>Elije uno</option>
-                                <option value="GP">Gerencia Planeamiento y Desarrollo</option>
-                                <option value="GG">Gerencia General</option>
-                                <option value="AL">Asesoría Legal</option>
-                                <option value="GO">Gerencia de Operaciones</option>
-                                <option value="CI">Control Institucional</option>
-                                <option value="GT">Gerencia Técnica</option>
-                                <option value="GA">Gerencia Administración y Finanzas</option>
-                                <option value="GC">Gerencia Comercial</option>
-                                <option value="Moq">Gerencia Moquegua</option>
-                                <option value="Ilo">Gerencia Ilo</option>
-                              </select>
-                            </div>
-                          </div>
-
-                        </form>
-
-                        <hr>
-
-                        <div class="row">
-                          <div class="col-md-12 text-right">
-                            <button type="button" class="btn btn-success btn-sm" id="btnCreateCompu"><i class="fas fa-save mr-2 fa-sm text-white-50"></i>Guardar</button>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+                  <div class="card-body">
+                    <div id="tableDomin"></div>
                   </div>
                 </div>
+
+
               </div>
             </div>
 

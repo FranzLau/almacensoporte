@@ -218,30 +218,62 @@ class crud
 
   public function createAssignment(){
 		require 'conexion.php';
-		date_default_timezone_set('America/Lima');
-		$dateAssig = date('Y-m-d');
-		$empAssig=$_SESSION['loginUser']['id_emp'];
+		//date_default_timezone_set('America/Lima');
+		//$dateAssig = date('Y-m-d');
+		$empAssig = $_SESSION['loginUser']['id_emp'];
 		$idAssig = self::createFolioAssig();
 		$datos = $_SESSION['EquipoAssigTemp'];
 		$r=0;
 		for ($i=0; $i < count($datos) ; $i++) {
 			$d=explode("||", $datos[$i]);
-			$sql=$con->query("INSERT INTO asignacion (id_asig,
+			$inserta1 = $con->query("INSERT INTO asignacion (id_asig,
                 														    fecha_asig,
                 														    cantidad_asig,
-                														    ubicacion_asig,
                 														    responsable_asig,
+                                                elsu_asig,
+                                                ip_asig,
+                                                mac_asig,
                 														    id_equipo,
-                														    id_emp)
+                														    id_emp,
+                                                id_gerencia,
+                                                id_area)
               								VALUES ('$idAssig',
-                  										'$dateAssig',
-                  										'$d[7]',
-                  										'$d[9]',
                   										'$d[0]',
-                  										'$d[2]',
-                  										'$empAssig') ");
-			$r = $r + $sql;
-			self::updateStock($d[2],$d[7]);
+                  										'$d[8]',
+                  										'$d[1]',
+                  										'$d[13]',
+                                      '$d[14]',
+                                      '$d[15]',
+                  										'$d[3]',
+                                      '$empAssig',
+                                      '$d[11]',
+                  										'$d[12]') ");
+        if ($inserta1 == true) {
+          $inserta2 = $con->query("INSERT INTO asignacion_temp (id_asig,
+                    														    fecha_asig,
+                    														    cantidad_asig,
+                    														    responsable_asig,
+                                                    elsu_asig,
+                                                    ip_asig,
+                                                    mac_asig,
+                    														    id_equipo,
+                    														    id_emp,
+                                                    id_gerencia,
+                                                    id_area)
+                  								VALUES ('$idAssig',
+                      										'$d[0]',
+                      										'$d[8]',
+                      										'$d[1]',
+                      										'$d[13]',
+                                          '$d[14]',
+                                          '$d[15]',
+                      										'$d[3]',
+                                          '$empAssig',
+                                          '$d[11]',
+                      										'$d[12]') ");
+        }
+			$r = $r + $inserta1;
+			self::updateStock($d[3],$d[8]);
       //self::updateValorAssig($d[2]);
 		}
 		return $r;
@@ -256,14 +288,6 @@ class crud
       $newStock = abs($stockProd - $cant);
       $sql = $con->query("UPDATE equipo SET cantidad_equipo='$newStock' WHERE id_equipo='$idprod' ");
 		}
-
-    // public function updateValorAssig($idprod){
-  	// 		require 'conexion.php';
-    //
-    //     //Actualizar
-    //     $newVal = 1;
-    //     $sql = $con->query("UPDATE equipo SET asignar_equipo='$newVal' WHERE id_equipo='$idprod' ");
-  	// 	}
 
   //------------------------ PARA VENTAS CRUD ------------------------------
 

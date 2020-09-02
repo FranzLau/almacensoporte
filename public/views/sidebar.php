@@ -14,9 +14,9 @@
 
       <!-- Nav Item - Dashboard -->
       <li class="nav-item">
-        <a class="nav-link" href="products.php">
+        <a class="nav-link" href="computer.php">
           <i class="fas fa-fw fa-laptop"></i>
-          <span>Equipos</span></a>
+          <span>Inventario</span></a>
       </li>
 
       <!-- Divider -->
@@ -27,19 +27,18 @@
         Distribución
       </div>
 
+      <!-- Nav Item - Tables -->
+      <li class="nav-item">
+        <a class="nav-link" href="products.php">
+          <i class="fas fa-fw fa-warehouse"></i>
+          <span>Almacén</span></a>
+      </li>
 
       <!-- Nav Item - Tables -->
       <li class="nav-item">
         <a class="nav-link" href="assignment.php">
           <i class="fas fa-fw fa-user-check"></i>
           <span>Asignación</span></a>
-      </li>
-
-      <!-- Nav Item - Tables -->
-      <li class="nav-item">
-        <a class="nav-link" href="computer.php">
-          <i class="fas fa-fw fa-server"></i>
-          <span>Redes</span></a>
       </li>
 
       <!-- Nav Item - Utilities Collapse Menu -->

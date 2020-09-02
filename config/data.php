@@ -43,6 +43,13 @@ class data
 		return $result[0];
 	}
 
+  public function serieEquipo($idequipo){
+		require 'conexion.php';
+		$sql = $con->query("SELECT serie_equipo FROM equipo WHERE id_equipo = '$idequipo' ");
+		$result = $sql->fetch_row();
+		return $result[0];
+	}
+
 
 }
 

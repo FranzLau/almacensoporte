@@ -2,7 +2,7 @@
   require '../../config/conexion.php';
   require '../../config/data.php';
   $obj = new data();
-  $sql = $con->query("SELECT * FROM dominio");
+  $sql = $con->query("SELECT * FROM asignacion_temp");
  ?>
 <div class="table-responsive">
   <table class="table table-sm table-hover datatable-wide" id="tableBox" width="100%" cellspacing="0">
@@ -12,7 +12,7 @@
         <th>NOMBRE</th>
         <th>SERIE</th>
         <th>RESPONSABLE</th>
-        <th>CARGO</th>
+        <th>AREA</th>
         <th>IP</th>
         <th>MAC</th>
         <th>ACCIONES</th>
@@ -24,7 +24,7 @@
         <th>NOMBRE</th>
         <th>SERIE</th>
         <th>RESPONSABLE</th>
-        <th>CARGO</th>
+        <th>AREA</th>
         <th>IP</th>
         <th>MAC</th>
         <th>ACCIONES</th>
@@ -34,14 +34,14 @@
       <?php while($verDom = $sql->fetch_row()){ ?>
         <tr>
           <td><?php echo $verDom[0] ?></td>
-          <td><?php echo $verDom[1] ?></td>
-          <td><?php echo $obj->nombEmpleado($verDom[6]) ?></td>
-          <td><?php echo $obj->nombEmpleado($verDom[7]) ?></td>
+          <td><?php echo $verDom[4] ?></td>
+          <td><?php echo $obj->serieEquipo($verDom[7]) ?></td>
+          <td><?php echo $obj->nombEmpleado($verDom[3]) ?></td>
+          <td><?php echo $obj->nameArea($verDom[10]) ?></td>
           <td><?php echo $verDom[5] ?></td>
-          <td><?php echo $verDom[2] ?></td>
-          <td><?php echo $verDom[3] ?></td>
+          <td><?php echo $verDom[6] ?></td>
           <td>
-            <a href="#" class="badge badge-outline-danger" data-toggle="modal" data-target="#modalCloseBox" onclick="obtenDataOpenbox('<?php echo $verDom[0] ?>')"><i class="fas fa-exclamation-circle mr-2"></i>Abierta</a>
+            <a href="#" class="badge badge-outline-success" data-toggle="modal" data-target="#modalCloseBox" onclick="obtenDataOpenbox('<?php echo $verDom[0] ?>')"><i class="fas fa-eye mr-2"></i>Detalles</a>
           </td>
         </tr>
        <?php } ?>

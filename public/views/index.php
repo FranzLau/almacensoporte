@@ -40,7 +40,7 @@
 
           <div class="row mb-3">
             <div class="col-sm-12">
-              <h6 class="m-0 font-weight-bold text-primary">Equipos de Computo</h6>
+              <h6 class="m-0 font-weight-bold text-primary">Equipos de Computo Asignados</h6>
             </div>
           </div>
 
@@ -127,7 +127,7 @@
 
           <div class="row mb-3">
             <div class="col-sm-12">
-              <h6 class="m-0 font-weight-bold text-primary">Otros Equipos</h6>
+              <h6 class="m-0 font-weight-bold text-primary">Otros Equipos Asignados</h6>
             </div>
           </div>
 
@@ -195,7 +195,7 @@
 
           <!-- Content Row  Charts -->
 
-          
+
 
         </div>
         <!-- /.container-fluid -->
